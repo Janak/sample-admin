@@ -1,0 +1,31 @@
+easy_admin:
+    site_name: '<img src="https://test.fads6-admin.fiareads.com/bundles/faadmin/images/fiare-logo-2.png" />'
+    design:
+        brand_color: '#1f222b'
+        menu:
+          - { label: 'Report Builder' }
+          - { entity: 'ReportSchema', label: 'Report Schema', icon: 'fa-cogs' }
+          - { entity: 'Page', label: 'Page',      icon: 'fa-gear' }
+          - { label: 'Reports' }
+    entities:
+        ReportSchema:
+            class: App\Entity\ReportSchema
+            list:
+              fields: ['id', 'name', 'ReportTypeName', 'dimension', {property: 'is_aggregation', 'label': 'Status', type: 'boolean'}, {property: 'is_active', 'label': 'Status', type: 'boolean'}]
+
+            form:
+              fields:
+                  - {property: 'name', label: 'Name'}
+                  - {property: 'report_type', type: 'App\Form\Type\ReportType'}
+                  - {property: 'dimension', label: 'Dimensions'}
+                  - {property: 'is_aggregation', label: 'Is aggregation required'}
+                  - {property: 'is_active', label: 'Status'}
+        Page:
+             class: App\Entity\Page
+             list:
+               fields: ['id', 'title', 'content', {property: 'is_active', 'label': 'Status', type: 'boolean'}]
+             form:
+               fields:
+                   - {property: 'title', label: 'Title'}
+                   - {property: 'content', label: 'Content'}
+                   - {property: 'is_active', label: 'Status'}
