@@ -1,12 +1,21 @@
 easy_admin:
     site_name: '<img src="https://test.fads6-admin.fiareads.com/bundles/faadmin/images/fiare-logo-2.png" />'
     design:
+        color_scheme: 'light'
         brand_color: '#1f222b'
         menu:
           - { label: 'Report Builder' }
           - { entity: 'ReportSchema', label: 'Report Schema', icon: 'fa-cogs' }
           - { entity: 'Page', label: 'Page',      icon: 'fa-gear' }
-          - { label: 'Reports' }
+          - label: 'Culture'
+          - { label: 'en', route: 'change_locale', params: { _locale: 'en' } }
+          - { label: 'fi', route: 'change_locale', params: { _locale: 'fi' } }
+          - { label: '%app.version%' }
+          - label: 'About'
+            children:
+                - { label: 'Help', url: 'http://example.com/external-docs' }
+                - { label: 'Docs', url: 'http://example.com/external-docs' }
+                - { label: '%app.version%' }
     entities:
         ReportSchema:
             class: App\Entity\ReportSchema
@@ -20,6 +29,7 @@ easy_admin:
                   - {property: 'dimension', label: 'Dimensions'}
                   - {property: 'is_aggregation', label: 'Is aggregation required'}
                   - {property: 'is_active', label: 'Status'}
+                  - {property: 'imageFile', type: 'vich_image' }
         Page:
              class: App\Entity\Page
              list:
@@ -29,3 +39,4 @@ easy_admin:
                    - {property: 'title', label: 'Title'}
                    - {property: 'content', label: 'Content'}
                    - {property: 'is_active', label: 'Status'}
+                   - {property: 'imageFile', type: 'vich_image' }

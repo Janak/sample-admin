@@ -1,0 +1,7 @@
+vich_uploader:
+    db_driver: orm
+    storage: flysystem
+    mappings:
+        page_images:
+            uri_prefix:         https://s3.%amazon.s3.region%.amazonaws.com/%amazon.s3.bucket%/gunvant/gapati
+            upload_destination: page_image_fs/upload/page
