@@ -1,7 +1,14 @@
+parameters:
+    app.path.page_images: https://s3.%amazon.s3.region%.amazonaws.com/%amazon.s3.bucket%/uploads/page
+
 vich_uploader:
     db_driver: orm
     storage: flysystem
     mappings:
         page_images:
-            uri_prefix:         https://s3.%amazon.s3.region%.amazonaws.com/%amazon.s3.bucket%/gunvant/gapati
-            upload_destination: page_image_fs/upload/page
+            uri_prefix:        '%app.path.page_images%'
+            upload_destination: page_image_fs
+            directory_namer:
+                service: 'vich_uploader.directory_namer_subdir'
+                options: {chars_per_dir: 1, dirs: 2}
+            namer: Vich\UploaderBundle\Naming\UniqidNamer

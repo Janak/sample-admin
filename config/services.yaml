@@ -43,3 +43,11 @@ services:
               credentials: { key: "%amazon.s3.key%", secret: "%amazon.s3.secret%" }
               region: "%amazon.s3.region%"
               version: "latest"
+
+    acme.imagine.cache.resolver.amazon_s3:
+            class: Liip\ImagineBundle\Imagine\Cache\Resolver\AwsS3Resolver
+            arguments:
+                - "@app.amazon_client"
+                - "%amazon.s3.bucket%"
+            tags:
+                - { name: "liip_imagine.cache.resolver", resolver: "amazon_s3" }

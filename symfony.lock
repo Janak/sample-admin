@@ -125,6 +125,9 @@
     "guzzlehttp/psr7": {
         "version": "1.4.2"
     },
+    "imagine/imagine": {
+        "version": "v0.7.1"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -136,6 +139,15 @@
     },
     "league/flysystem-aws-s3-v3": {
         "version": "1.0.19"
+    },
+    "liip/imagine-bundle": {
+        "version": "1.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.8",
+            "ref": "7f6676627c1ceeeee204553d24a0545d5f918b7b"
+        }
     },
     "monolog/monolog": {
         "version": "1.23.0"

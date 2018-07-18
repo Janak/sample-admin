@@ -33,7 +33,7 @@ easy_admin:
         Page:
              class: App\Entity\Page
              list:
-               fields: ['id', 'title', 'content', {property: 'is_active', 'label': 'Status', type: 'boolean'}]
+               fields: ['id', 'title', 'content', {property: 'is_active', 'label': 'Status', type: 'boolean'}, {property: 'image', type: 'image', base_path: '%app.path.page_images%'}]
              form:
                fields:
                    - {property: 'title', label: 'Title'}

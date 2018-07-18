@@ -1,0 +1,9 @@
+{% if vich_uploader_asset(item, 'imageFile') is not null %}
+    <a href="#" class="easyadmin-thumbnail" data-featherlight="#easyadmin-lightbox-{{ uuid }}" data-featherlight-close-on-click="anywhere">
+        <img src="{{ asset(value) | imagine_filter('squared_thumbnail') }} ">
+    </a>
+
+    <div id="easyadmin-lightbox-{{ uuid }}" class="easyadmin-lightbox">
+        <img src="{{ asset(value) }}">
+    </div>
+{% endif %}
