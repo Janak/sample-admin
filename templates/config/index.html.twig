@@ -1,0 +1,42 @@
+{% extends 'bundles/EasyAdminBundle/default/layout.html.twig' %}
+
+{% block title %}Config index{% endblock %}
+
+
+{% block body_id 'easyadmin-list-config' %}
+{% block body_class 'list list-config' %}
+
+{% block main %}
+    <h1>Config index</h1>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th><span>Id</span></th>
+                <th><span>Name</span></th>
+                <th><span>Value</span></th>
+                <th><span>Actions</span></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for config in configs %}
+            <tr>
+                <td>{{ config.id }}</td>
+                <td>{{ config.name }}</td>
+                <td>{{ config.value }}</td>
+                <td>
+                    <a href="{{ path('config_show', {'id': config.id}) }}">show</a>
+                    <a href="{{ path('config_edit', {'id': config.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <a href="{{ path('config_new') }}">Create new</a>
+{% endblock %}

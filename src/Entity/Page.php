@@ -74,6 +74,7 @@ class Page
     public function __construct()
     {
         $this->translations = new ArrayCollection();
+        $this->updatedAt = new \DateTime('now');
     }
 
 

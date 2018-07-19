@@ -1,8 +1,7 @@
 easy_admin:
     site_name: '<img src="https://test.fads6-admin.fiareads.com/bundles/faadmin/images/fiare-logo-2.png" />'
     design:
-        color_scheme: 'light'
-        brand_color: '#1f222b'
+        color_scheme: 'dark'
         menu:
           - { label: 'Report Builder' }
           - { entity: 'ReportSchema', label: 'Report Schema', icon: 'fa-cogs' }

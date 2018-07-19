@@ -1,0 +1,17 @@
+{% extends 'bundles/EasyAdminBundle/default/layout.html.twig' %}
+
+{% block body_id 'easyadmin-new-config' %}
+{% block body_class 'new new-config' %}
+{% form_theme form with easyadmin_config('design.form_theme') %}
+
+{% block content_title %}
+    New Config
+{% endblock %}
+
+{% block main %}
+    {% block entity_form %}
+    {{ include('config/_form.html.twig') }}
+    {% endblock %}
+
+    <a href="{{ path('config_index') }}">back to list</a>
+{% endblock %}

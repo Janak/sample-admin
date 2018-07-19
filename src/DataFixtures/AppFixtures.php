@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Config;
 use App\Entity\Page;
 use App\Entity\PageTranslation;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -22,6 +23,18 @@ class AppFixtures extends Fixture
             $page->addTranslation(new PageTranslation('fi', 'title', 'Title FI'));
             $page->addTranslation(new PageTranslation('fi', 'content', 'Content FI'));
             $manager->persist($page);
+        }
+
+        $manager->flush();
+
+
+        // create 20 products! Bam!
+        for ($i = 0; $i < 20; $i++) {
+            $config = new Config();
+            $config->setName('config-name-'.$i);
+            $config->setValue('config-value-'.$i);
+
+            $manager->persist($config);
         }
 
         $manager->flush();
